@@ -21,6 +21,7 @@
 		CDCE31F61989D15A00648B99 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDCE31D81989D15A00648B99 /* UIKit.framework */; };
 		CDCE31FE1989D15A00648B99 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CDCE31FC1989D15A00648B99 /* InfoPlist.strings */; };
 		CDCE32001989D15A00648B99 /* saveSqliteDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CDCE31FF1989D15A00648B99 /* saveSqliteDemoTests.m */; };
+		CDCE320A1989D34B00648B99 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CDCE32091989D34B00648B99 /* libsqlite3.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		CDCE31FB1989D15A00648B99 /* saveSqliteDemoTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "saveSqliteDemoTests-Info.plist"; sourceTree = "<group>"; };
 		CDCE31FD1989D15A00648B99 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		CDCE31FF1989D15A00648B99 /* saveSqliteDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = saveSqliteDemoTests.m; sourceTree = "<group>"; };
+		CDCE32091989D34B00648B99 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +62,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CDCE320A1989D34B00648B99 /* libsqlite3.dylib in Frameworks */,
 				CDCE31D71989D15A00648B99 /* CoreGraphics.framework in Frameworks */,
 				CDCE31D91989D15A00648B99 /* UIKit.framework in Frameworks */,
 				CDCE31D51989D15A00648B99 /* Foundation.framework in Frameworks */,
@@ -101,6 +104,7 @@
 		CDCE31D31989D15A00648B99 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CDCE32091989D34B00648B99 /* libsqlite3.dylib */,
 				CDCE31D41989D15A00648B99 /* Foundation.framework */,
 				CDCE31D61989D15A00648B99 /* CoreGraphics.framework */,
 				CDCE31D81989D15A00648B99 /* UIKit.framework */,
