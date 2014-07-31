@@ -132,6 +132,9 @@
         
         while (sqlite3_step(stmt)==SQLITE_ROW) {
             
+            
+            int idInt = sqlite3_column_int(stmt, 0);//id in the sqlite
+            
             char *name = (char *)sqlite3_column_text(stmt, 1);
             NSString *nameString = [[NSString alloc] initWithUTF8String:name];
             
@@ -141,7 +144,7 @@
             char *address = (char *)sqlite3_column_text(stmt, 3);
             NSString *addressString = [[NSString alloc] initWithUTF8String:address];
             
-            NSLog(@"starr: %@, finish: %@, result: %@",nameString,sexString,addressString);
+            NSLog(@"id: %i starr: %@, finish: %@, result: %@",idInt,nameString,sexString,addressString);
         }  
         
         sqlite3_finalize(stmt);  
