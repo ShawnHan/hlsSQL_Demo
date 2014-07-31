@@ -183,6 +183,112 @@
     NSLog(@"count == %i",count);
 }
 
+- (IBAction)sendEmail:(id)sender {
+    [self sendOne];
+}
+-(void)sendOne
+{
+    Class mailClass = (NSClassFromString(@"MFMailComposeViewController"));
+    if (mailClass != nil)
+    {
+        if ([mailClass canSendMail])
+        {
+            [self sendEmail];   // 调用发送邮件的方法
+        }
+        else {
+            [self launchMailAppOnDevice];   // 调用客户端邮件程序
+        }
+    }
+    else {
+        [self launchMailAppOnDevice];    // 调用客户端邮件程序
+    }
+    
+}
+-(void)sendEmail
+{
+    MFMailComposeViewController *sendMailView = [[MFMailComposeViewController alloc] init];
+    
+    sendMailView.mailComposeDelegate = self;
+    
+    [sendMailView setSubject:@"test Message"];
+    
+    
+    [sendMailView setToRecipients:[NSArray arrayWithObject:@"shawn@imaxmax.com"]];
+    
+    [sendMailView setMessageBody:@"Hello world!\nIs everything OK?" isHTML:NO];
+    
+    
+    /*
+     NSArray *searchPaths = NSSearchPathForDirectoriesInDomains(NSDocumentationDirectory, NSUserDomainMask, YES);
+     NSString *documentPath = [searchPaths objectAtIndex:0];
+     
+     NSString *path = [[NSString alloc] initWithFormat:@"%@/CoreDataExportDemo.sqlite",documentPath];
+     */
+    //NSString *newPath = [[NSString alloc] initWithFormat:@"%@/newCoreDataExportDemo.sqlite",documentPath];
+    
+    //NSURL *theUrl = [NSURL URLWithString:newPath];
+    //[[NSFileManager defaultManager] copyItemAtPath:path toPath:newPath error:nil];
+    
+    //NSString *path = [[NSBundle mainBundle] pathForResource:@"CoreDataExportDemo" ofType:@"sqlite"];
+    
+    //NSData *data = [NSData dataWithContentsOfFile:path];
+    //NSData *data = [NSData dataWithContentsOfURL:theUrl];
+    
+    //[sendMailView addAttachmentData:data mimeType:@"application/x-sqlite3" fileName:@"CoreDataExportDemo.sqlite"];
+    //NSLog(@"%@",documentPath);
+   
+    
+    
+    //NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"CoreDataExportDemo.sqlite"];
+    //NSLog(@"CoreData Localion: %@",storeURL);
+    
+    NSData *data = [NSData dataWithContentsOfFile:_databasePath];
+    
+    [sendMailView addAttachmentData:data mimeType:@"application/x-sqlite3" fileName:@"testResult.sqlite"];
+    
+    NSLog(@"%@",_databasePath);
+    
+    
+    [self presentViewController:sendMailView animated:NO completion:nil];
+    
+    
+    
+}
+-(void)launchMailAppOnDevice
+{
+    NSString *recipients = @"mailto:first@example.com&subject=my email!";
+    //@"mailto:first@example.com?cc=second@example.com,third@example.com&subject=my email!";
+    NSString *body = @"&body=email body!";
+    NSString *email = [NSString stringWithFormat:@"%@%@", recipients, body];
+    email = [email stringByAddingPercentEscapesUsingEncoding: NSUTF8StringEncoding];
+    [[UIApplication sharedApplication] openURL: [NSURL URLWithString:email]];
+}
+
+- (void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error
+{
+    switch (result) {
+        case MFMailComposeResultCancelled: {
+            NSLog(@"Mail send canceled.");
+            break;
+        }
+        case MFMailComposeResultSaved: {
+            NSLog(@"Mail saved.");
+            break;
+        }
+        case MFMailComposeResultSent: {
+            NSLog(@"Mail sent.");
+            break;
+        }
+        case MFMailComposeResultFailed: {
+            NSLog(@"Mail sent Failed.");
+            break;
+        }
+        default:
+            break;
+    }
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 
 
 

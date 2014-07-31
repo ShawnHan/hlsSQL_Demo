@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <sqlite3.h>
-
-@interface ViewController : UIViewController
+#import <MessageUI/MFMailComposeViewController.h>
+@interface ViewController : UIViewController<MFMailComposeViewControllerDelegate>
 
 @end

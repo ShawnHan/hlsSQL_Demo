@@ -22,6 +22,7 @@
 		CDCE31FE1989D15A00648B99 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CDCE31FC1989D15A00648B99 /* InfoPlist.strings */; };
 		CDCE32001989D15A00648B99 /* saveSqliteDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CDCE31FF1989D15A00648B99 /* saveSqliteDemoTests.m */; };
 		CDCE320A1989D34B00648B99 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CDCE32091989D34B00648B99 /* libsqlite3.dylib */; };
+		CDCE320C1989F74600648B99 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDCE320B1989F74600648B99 /* MessageUI.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		CDCE31FD1989D15A00648B99 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		CDCE31FF1989D15A00648B99 /* saveSqliteDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = saveSqliteDemoTests.m; sourceTree = "<group>"; };
 		CDCE32091989D34B00648B99 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		CDCE320B1989F74600648B99 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +64,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CDCE320C1989F74600648B99 /* MessageUI.framework in Frameworks */,
 				CDCE320A1989D34B00648B99 /* libsqlite3.dylib in Frameworks */,
 				CDCE31D71989D15A00648B99 /* CoreGraphics.framework in Frameworks */,
 				CDCE31D91989D15A00648B99 /* UIKit.framework in Frameworks */,
@@ -104,6 +107,7 @@
 		CDCE31D31989D15A00648B99 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CDCE320B1989F74600648B99 /* MessageUI.framework */,
 				CDCE32091989D34B00648B99 /* libsqlite3.dylib */,
 				CDCE31D41989D15A00648B99 /* Foundation.framework */,
 				CDCE31D61989D15A00648B99 /* CoreGraphics.framework */,
