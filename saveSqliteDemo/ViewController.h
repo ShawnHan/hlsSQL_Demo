@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <sqlite3.h>
 #import <MessageUI/MFMailComposeViewController.h>
+#import <AdSupport/AdSupport.h>
 @interface ViewController : UIViewController<MFMailComposeViewControllerDelegate>
 
 @end

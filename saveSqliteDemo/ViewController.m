@@ -55,12 +55,16 @@
         }
     }
     
-    int count;
-    count = [self GetCount];
-    NSLog(@"data base count %i",count);
+    
+    [self getudid];
 	// Do any additional setup after loading the view, typically from a nib.
 }
+-(void)getudid
+{
+    NSString *udid = [[[ASIdentifierManager sharedManager] advertisingIdentifier] UUIDString];
 
+    NSLog(@"advertisingIdentifier == %@",udid);
+}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -206,16 +210,22 @@
 }
 -(void)sendEmail
 {
+    NSString *advertisingIdentifier = [[[ASIdentifierManager sharedManager] advertisingIdentifier] UUIDString];
+    
+    NSString *sendStr = [NSString stringWithFormat:@"Test Device AdvertisingIdentifier is: %@",advertisingIdentifier];
+    
     MFMailComposeViewController *sendMailView = [[MFMailComposeViewController alloc] init];
     
     sendMailView.mailComposeDelegate = self;
     
-    [sendMailView setSubject:@"test Message"];
+    [sendMailView setSubject:@"test device sqlite"];
     
     
     [sendMailView setToRecipients:[NSArray arrayWithObject:@"shawn@imaxmax.com"]];
     
-    [sendMailView setMessageBody:@"Hello world!\nIs everything OK?" isHTML:NO];
+    
+    
+    [sendMailView setMessageBody:sendStr isHTML:NO];
     
     
     /*
